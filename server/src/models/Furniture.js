@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
 const furnitureSchema = Schema({
     make:{
@@ -34,6 +34,10 @@ const furnitureSchema = Schema({
     },
     material: {
         type: String,
+    },
+    _ownerId: {
+        type: Types.ObjectId,
+        ref: 'User',
     },
 });
 

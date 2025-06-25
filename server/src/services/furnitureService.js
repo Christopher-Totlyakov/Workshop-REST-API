@@ -1,8 +1,8 @@
 import Furniture from "../models/furniture.js"
 
 export default {
-    async create(furnitureData){
-        return await Furniture.create(furnitureData);
+    async create(furnitureData, ownerId){
+        return await Furniture.create({ ...furnitureData, _ownerId: ownerId });
     },
     async getAll(){
         return await Furniture.find();
