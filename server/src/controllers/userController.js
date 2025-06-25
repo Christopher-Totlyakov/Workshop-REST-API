@@ -14,4 +14,8 @@ userControler.post('/register', async (req, res) => {
     }
 });
 
+userControler.get('/logout',(req,res) => {
+    res.json({});
+});
+
 export default userControler;
