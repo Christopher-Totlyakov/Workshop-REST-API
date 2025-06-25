@@ -2,7 +2,7 @@ import jsonwebtoken from 'jsonwebtoken'
 import { JWT_Secret } from '../config/const.js';
 
 export const auth = (req,res, next) => {
-    const token = req.headers('X-Authorization');
+    const token = req.header('X-Authorization');
 
     if (!token) {
         return next();

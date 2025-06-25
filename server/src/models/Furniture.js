@@ -21,7 +21,7 @@ const furnitureSchema = Schema({
         type: Number,
         required: [true, "Price information is required"]
     },
-    image: {
+    img: {
         type: String,
         required: [true, "Image information is required"]
     },
