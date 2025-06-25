@@ -7,4 +7,7 @@ export default {
     async getAll(){
         return await Furniture.find();
     },
+    async getById(id){
+        return await Furniture.findById(id);
+    }
 }

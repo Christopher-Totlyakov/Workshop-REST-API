@@ -25,4 +25,16 @@ furnitureController.post('/',async (req,res)=>{
 
 });
 
+furnitureController.get('/:id',async (req,res)=>{
+    const furnitureId = req.params.id;
+
+    try {
+        const furniture = await furnitureService.getById(furnitureId);
+        res.json(furniture);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+    
+})
+
 export default furnitureController;
