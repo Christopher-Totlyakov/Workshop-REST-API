@@ -18,4 +18,16 @@ userControler.get('/logout',(req,res) => {
     res.json({});
 });
 
+userControler.post('/login', async (req,res) => {
+    
+    const {email, password} = req.body;
+
+    try {
+        const user = await userService.login(email, password);
+        res.json(user);
+    } catch (error) {
+        console.log(error)
+    }
+ 
+});
 export default userControler;
