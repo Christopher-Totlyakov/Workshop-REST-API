@@ -42,8 +42,14 @@ furnitureController.delete('/:id', async (req, res) => {
     const furnitureId = req.params.id;
 
     try {
-        const furniture = await furnitureService.deleteById(furnitureId);
-        res.json(furniture);
+        const furniture = await furnitureService.getById(furnitureId);
+
+        if (furniture._ownerId.toString() != req.user.id) {
+            throw new Error("You are not owner")
+        }
+        
+        await furnitureService.deleteById(furnitureId);
+        res.json({});
     } catch (error) {
         res.status(400).json(error);
     }
