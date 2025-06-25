@@ -36,6 +36,18 @@ furnitureController.get('/:id',async (req,res)=>{
         res.status(400).json(error);
     }
     
+});
+
+furnitureController.delete('/:id', async (req, res) => {
+    const furnitureId = req.params.id;
+
+    try {
+        const furniture = await furnitureService.deleteById(furnitureId);
+        res.json(furniture);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+
 })
 
 export default furnitureController;

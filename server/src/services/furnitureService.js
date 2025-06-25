@@ -9,5 +9,8 @@ export default {
     },
     async getById(id){
         return await Furniture.findById(id);
+    },
+    async deleteById(id){
+        return await Furniture.findByIdAndDelete(id);
     }
 }
