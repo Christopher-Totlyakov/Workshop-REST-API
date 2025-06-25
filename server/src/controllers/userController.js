@@ -10,7 +10,7 @@ userControler.post('/register', async (req, res) => {
         const user = await userService.register(UserData);
         res.json(user);
     } catch (error) {
-        console.log(error)
+        res.status(400).json(error);
     }
 });
 
@@ -26,7 +26,7 @@ userControler.post('/login', async (req,res) => {
         const user = await userService.login(email, password);
         res.json(user);
     } catch (error) {
-        console.log(error)
+        res.status(400).json(error);
     }
  
 });
