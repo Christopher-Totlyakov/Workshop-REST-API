@@ -4,8 +4,8 @@ export default {
     async create(furnitureData, ownerId){
         return await Furniture.create({ ...furnitureData, _ownerId: ownerId });
     },
-    async getAll(){
-        return await Furniture.find();
+    async getAll(filter = {}){
+        return await Furniture.find(filter);
     },
     async getById(id){
         return await Furniture.findById(id);
