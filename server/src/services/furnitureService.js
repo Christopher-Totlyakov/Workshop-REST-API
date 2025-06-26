@@ -12,5 +12,8 @@ export default {
     },
     async deleteById(id){
         return await Furniture.findByIdAndDelete(id);
+    },
+    async edit(id, furnitureData){
+        return await Furniture.findByIdAndUpdate(id, furnitureData);
     }
 }

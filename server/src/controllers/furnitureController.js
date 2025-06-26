@@ -56,4 +56,23 @@ furnitureController.delete('/:id', async (req, res) => {
 
 })
 
+furnitureController.put('/:id', async (req, res) => {
+    const furnitureId = req.params.id;
+    const furnitureData = req.body;
+
+    try {
+        const furniture = await furnitureService.getById(furnitureId);
+
+        if (furniture._ownerId.toString() != req.user.id) {
+            throw new Error("You are not owner");
+        }
+
+        const editFurniture = await furnitureService.edit(furnitureId, furnitureData);
+        res.json(editFurniture);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+
+})
+
 export default furnitureController;
